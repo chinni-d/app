@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recommendations</title>
+  </head>
+  <style>
+    .shape {
+      position: absolute;
+      border-radius: 50%;
+      z-index: 0;
+    }
+    .shape1 {
+      width: 500px;
+      height: 500px;
+      background: rgba(255, 203, 203, 0.5);
+      top: -100px;
+      left: -150px;
+      background-image: url("https://i.pinimg.com/originals/05/84/11/0584114967289546cf8257f6205e792e.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .shape2 {
+      width: 500px;
+      height: 500px;
+      border-radius: 10px;
+      background: rgba(200, 220, 255, 0.5);
+      top: 130px;
+      right: 550px;
+      background-image: url("https://th.bing.com/th/id/R.fae5c206f88d55cdebc452654cafd98d?rik=Fk77kQoJbSrgTA&riu=http%3a%2f%2fassured4life.com%2fwp-content%2fuploads%2f2017%2f09%2fDIABETES_v2.jpg&ehk=4Hy96N%2bjzCpC5ms%2bO092W1kg%2b5LTc3eLfJOS5g3wpD4%3d&risl=&pid=ImgRaw&r=0");
+      background-size: cover;
+      background-repeat: no-repeat;
+      position: absolute;
+      overflow: hidden;
+      transition: all 0.4s ease;
+    }
+
+    .shape2::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -150%;
+      width: 200%;
+      height: 100%;
+      background: linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0) 0%,
+        rgba(255, 255, 255, 0.8) 50%,
+        rgba(255, 255, 255, 0) 100%
+      );
+      transition: all 0.5s ease;
+    }
+
+    .shape2:hover::before {
+      left: 150%;
+      transition: left 0.8s ease;
+    }
+
+    .shape3 {
+      width: 400px;
+      height: 400px;
+      background: rgba(200, 220, 255, 0.5);
+      top: 250px;
+      right: -100px;
+      background-image: url("https://www.prnpt.com/Resources/087925d1-7fb2-4de6-a212-7c35e43614a9/PRN%20Cigna%20MRF.jpeg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
+    .main {
+      position: relative;
+      left: 520px;
+      top: 45px;
+      margin: 40px;
+      position: relative;
+      max-width: 100%;
+    }
+    .m {
+      position: relative;
+      left: 150px;
+      top: 100px;
+    }
+    body {
+      background: linear-gradient(to right, #f3f4f6, #e0f7fa);
+
+      overflow-x: hidden;
+      background: linear-gradient(to right, #f3f4f6, #e0f7fa);
+    }
+    /* From Uiverse.io by mrhyddenn */
+    .button {
+      -moz-appearance: none;
+      -webkit-appearance: none;
+      appearance: none;
+      border: none;
+      background: none;
+      color: #0f1923;
+      cursor: pointer;
+      position: relative;
+      padding: 8px;
+      margin-bottom: 20px;
+      text-transform: uppercase;
+      font-weight: bold;
+      font-size: 14px;
+      transition: all 0.15s ease;
+      position: relative;
+      left: 80px;
+      top: 520px;
+    }
+
+    .button::before,
+    .button::after {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      left: 0;
+      height: calc(50% - 5px);
+      border: 1px solid #7d8082;
+      transition: all 0.15s ease;
+    }
+
+    .button::before {
+      top: 0;
+      border-bottom-width: 0;
+    }
+
+    .button::after {
+      bottom: 0;
+      border-top-width: 0;
+    }
+
+    .button:active,
+    .button:focus {
+      outline: none;
+    }
+
+    .button:active::before,
+    .button:active::after {
+      right: 3px;
+      left: 3px;
+    }
+
+    .button:active::before {
+      top: 3px;
+    }
+
+    .button:active::after {
+      bottom: 3px;
+    }
+
+    .button_lg {
+      position: relative;
+      display: block;
+      padding: 10px 20px;
+      color: #fff;
+      background-color: #0f1923;
+      overflow: hidden;
+      box-shadow: inset 0px 0px 0px 1px transparent;
+    }
+
+    .button_lg::before {
+      content: "";
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2px;
+      height: 2px;
+      background-color: #0f1923;
+    }
+
+    .button_lg::after {
+      content: "";
+      display: block;
+      position: absolute;
+      right: 0;
+      bottom: 0;
+      width: 4px;
+      height: 4px;
+      background-color: #0f1923;
+      transition: all 0.2s ease;
+    }
+
+    .button_sl {
+      display: block;
+      position: absolute;
+      top: 0;
+      bottom: -1px;
+      left: -8px;
+      width: 0;
+      background-color: #ff4655;
+      transform: skew(-15deg);
+      transition: all 0.2s ease;
+    }
+
+    .button_text {
+      position: relative;
+    }
+
+    .button:hover {
+      color: #0f1923;
+    }
+
+    .button:hover .button_sl {
+      width: calc(100% + 15px);
+    }
+
+    .button:hover .button_lg::after {
+      background-color: #fff;
+    }
+    button:hover {
+      opacity: 0.9;
+      transform: scale(1.05); /* Slightly enlarge on hover */
+    }
+    ul > li {
+      font-size: 20px;
+      display: none;
+    }
+  </style>
+  <body>
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="shape shape3"></div>
+    <div class="main">
+      <h2>Recommendations for {{ name }}</h2>
+
+      <ul>
+        {% for recommendation in recommendations %}
+        <li>{{ recommendation }}</li>
+        {% endfor %}
+      </ul>
+      <a href="/predict">
+        <div>
+          <button class="button">
+            <span class="button_lg">
+              <span class="button_sl"></span>
+              <span class="button_text">Back to Home</span>
+            </span>
+          </button>
+        </div></a
+      >
+    </div>
+  </body>
+</html>

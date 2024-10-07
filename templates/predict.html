@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Diabetes Prediction</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+
+  <body>
+    <div class="background"></div>
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+
+    <div class="container">
+      <h1>PREDICT DIABETES</h1>
+      <!-- Add onsubmit to call the handleSubmit function -->
+      <form
+        id="predictionForm"
+        action="/predict"
+        method="post"
+        onsubmit="handleSubmit(event)"
+      >
+        <div class="section">
+          <div class="column">
+            <label for="name">Name</label>
+            <input
+              type="text"
+              id="name"
+              name="name"
+              placeholder="Enter your name"
+              required
+            />
+
+            <label for="age">Age (years)</label>
+            <input
+              type="number"
+              id="age"
+              name="age"
+              placeholder="Enter age (0-120)"
+              min="0"
+              max="120"
+              required
+            />
+
+            <label for="insulin">Insulin Level</label>
+            <input
+              type="number"
+              id="insulin"
+              name="insulin"
+              placeholder="Enter insulin level (0-400 µU/mL)"
+              min="0"
+              max="400"
+              required
+            />
+
+            <label for="glucose">Glucose Level</label>
+            <input
+              type="number"
+              id="glucose"
+              name="glucose"
+              placeholder="Enter glucose level (0-300 mg/dL)"
+              min="0"
+              max="300"
+              required
+            />
+
+            <label for="bmi">Body Mass Index</label>
+            <input
+              type="number"
+              id="bmi"
+              name="bmi"
+              placeholder="Enter BMI (10-60 kg/m²)"
+              min="10"
+              max="60"
+              required
+            />
+          </div>
+
+          <div class="column">
+            <label for="gender">Gender</label>
+            <select id="gender" name="gender" required class="input">
+              <option value="" disabled selected>Select your gender</option>
+              <option value="Male">Male</option>
+              <option value="Female">Female</option>
+            </select>
+
+            <label for="blood_pressure">Blood Pressure (mmHg)</label>
+            <input
+              type="number"
+              id="bloodPressure"
+              name="blood_pressure"
+              placeholder="Enter blood pressure (e.g., 120)"
+              min="0"
+              required
+            />
+
+            <label for="diabetesPedigree">Diabetes Pedigree Function</label>
+            <input
+              type="number"
+              id="diabetesPedigree"
+              name="diabetes_pedigree"
+              placeholder="Enter diabetes pedigree function (0-1)"
+              min="0"
+              max="1"
+              step="0.01"
+              required
+            />
+
+            <label for="skin_Thickness">Skin Thickness (mm)</label>
+            <input
+              type="number"
+              id="skinThickness"
+              name="skin_thickness"
+              placeholder="Enter skin thickness (0-100 mm)"
+              min="0"
+              max="100"
+              required
+            />
+
+            <label for="pregnancies">Pregnancies</label>
+            <input
+              type="number"
+              id="pregnancies"
+              name="pregnancies"
+              placeholder="Enter pregnancies (0-20)"
+              min="0"
+              max="20"
+              required
+            />
+          </div>
+        </div>
+
+        <button class="button">
+          <span class="button_lg">
+            <span class="button_sl"></span>
+            <span class="button_text">Predict now</span>
+          </span>
+        </button>
+
+        <!-- Loading Spinner inside the form -->
+        <div class="terminal-loader" id="loadingSpinner">
+          <div class="terminal-header">
+            <div class="terminal-title">Status</div>
+            <div class="terminal-controls">
+              <div class="control close"></div>
+              <div class="control minimize"></div>
+              <div class="control maximize"></div>
+            </div>
+          </div>
+          <div class="text">Loading...</div>
+        </div>
+      </form>
+    </div>
+
+    <script>
+      function handleSubmit(event) {
+        event.preventDefault(); // Prevent default form submission
+
+        // Show the loading spinner
+        const spinner = document.getElementById("loadingSpinner");
+        const contentWrapper = document.getElementById("contentWrapper");
+        const body = document.body;
+
+        // Add a class to apply the blur effect
+        body.classList.add("loading-active");
+        spinner.style.display = "block";
+
+        // Simulate a delay of 2 seconds for the loading spinner before form submission
+        setTimeout(() => {
+          document.getElementById("predictionForm").submit();
+        }, 2200);
+      }
+    </script>
+  </body>
+</html>

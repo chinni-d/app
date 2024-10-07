@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Prediction Result</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"
+    />
+    <style>
+      body {
+        font-family: "Roboto", sans-serif;
+        background: linear-gradient(to right, #f3f4f6, #e0f7fa);
+        margin: 0;
+        padding: 0; /* Set padding to 0 to prevent overflow */
+        overflow-x: hidden; /* Prevent horizontal overflow */
+      }
+      .container {
+        background: white; /* Keep the container background white */
+        border-radius: 10px;
+        padding: 20px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+        width: 100%; /* Set to 100% */
+        max-width: 400px; /* Limit the max width */
+        margin: auto;
+        text-align: center;
+        position: relative; /* Ensure absolute shapes position correctly */
+        overflow: hidden; /* Prevent overflow within the container */
+        margin-top: 100px;
+        left: 100px;
+        background-image: url("https://img.freepik.com/premium-vector/abstract-hexagonal-molecular-structures-technology-background-science-style-medical-design-vector-illustration_41981-2690.jpg?w=2000");
+        background-size: cover;
+        background-repeat: no-repeat;
+        position:relative;
+        margin-left:450px;
+       
+      }
+      h1 {
+        color: #007bff;
+        margin-top:0;
+      }
+      .input-list {
+        text-align: left;
+        margin: 20px 0;
+      }
+      .input-list p {
+        margin: 5px 0;
+      }
+      .result {
+        font-size: 20px;
+        font-weight: bold;
+      }
+      .diabetes {
+        color: red; /* Red color for diabetes result */
+      }
+      .healthy {
+        color: green; /* Green color for healthy result */
+      }
+      a {
+        display: inline-block;
+        margin-top: 20px;
+        padding: 10px 20px;
+        
+        color: white;
+        text-decoration: none;
+        border-radius: 5px;
+      }
+      a:hover {
+        
+      }
+      .shape {
+        position: absolute;
+        border-radius: 50%;
+        z-index: 0;
+      }
+      .shape1 {
+        width: 500px;
+        height: 500px;
+        background: rgba(255, 203, 203, 0.5);
+        top: -100px;
+        left: -200px;
+        background-image:url("https://i.pinimg.com/originals/05/84/11/0584114967289546cf8257f6205e792e.jpg");
+        background-size:cover;
+        background-repeat:no-repeat;
+      }
+      .shape2 {
+        width: 400px;
+        height: 400px;
+        background: rgba(200, 220, 255, 0.5);
+        top: 300px;
+        right: -100px;
+        background-image:url("https://www.prnpt.com/Resources/087925d1-7fb2-4de6-a212-7c35e43614a9/PRN%20Cigna%20MRF.jpeg");
+        background-size:cover;
+        background-repeat:no-repeat;
+      }
+      .button {
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        appearance: none;
+        border: none;
+        background: none;
+        color: #0f1923;
+        cursor: pointer;
+        position: relative;
+        padding: 8px;
+        margin-bottom: 20px;
+        text-transform: uppercase;
+        font-weight: bold;
+        font-size: 14px;
+        transition: all 0.15s ease;
+        position: relative;
+        margin:0;
+      }
+      
+
+      .button::before,
+      .button::after {
+        content: "";
+        display: block;
+        position: absolute;
+        right: 0;
+        left: 0;
+        height: calc(50% - 5px);
+        border: 1px solid #7d8082;
+        transition: all 0.15s ease;
+      }
+
+      .button::before {
+        top: 0;
+        border-bottom-width: 0;
+      }
+
+      .button::after {
+        bottom: 0;
+        border-top-width: 0;
+      }
+
+      .button:active,
+      .button:focus {
+        outline: none;
+      }
+
+      .button:active::before,
+      .button:active::after {
+        right: 3px;
+        left: 3px;
+      }
+
+      .button:active::before {
+        top: 3px;
+      }
+
+      .button:active::after {
+        bottom: 3px;
+      }
+
+      .button_lg {
+        position: relative;
+        display: block;
+        padding: 10px 20px;
+        color: #fff;
+        background-color: #0f1923;
+        overflow: hidden;
+        box-shadow: inset 0px 0px 0px 1px transparent;
+      }
+
+      .button_lg::before {
+        content: "";
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 2px;
+        height: 2px;
+        background-color: #0f1923;
+      }
+
+      .button_lg::after {
+        content: "";
+        display: block;
+        position: absolute;
+        right: 0;
+        bottom: 0;
+        width: 4px;
+        height: 4px;
+        background-color: #0f1923;
+        transition: all 0.2s ease;
+      }
+
+      .button_sl {
+        display: block;
+        position: absolute;
+        top: 0;
+        bottom: -1px;
+        left: -8px;
+        width: 0;
+        background-color: #ff4655;
+        transform: skew(-15deg);
+        transition: all 0.2s ease;
+      }
+
+      .button_text {
+        position: relative;
+      }
+
+      .button:hover {
+        color: #0f1923;
+      }
+
+      .button:hover .button_sl {
+        width: calc(100% + 15px);
+      }
+
+      .button:hover .button_lg::after {
+        background-color: #fff;
+      }
+      .m{
+        position:relative;
+        right:5px;
+        margin-left:15px;
+      }
+      h3{
+        margin:0;
+      }
+      button:hover {
+        opacity: 0.9;
+        transform: scale(1.05); /* Slightly enlarge on hover */
+      }
+      
+    </style>
+  </head>
+  <body>
+    <div class="shape shape1"></div>
+    <div class="shape shape2"></div>
+    <div class="container">
+      <h1>Prediction Result</h1>
+      <div class="input-list">
+        <h3>Your Inputs:</h3>
+        <ul>
+          <li>Name: {{ inputs[0] }}</li>
+          <li>Gender: {{ inputs[1] }}</li>
+          <li>Age: {{ inputs[9] }}</li>
+          <li>Pregnancies: {{ inputs[2] }}</li>
+          <li>Insulin Level: {{ inputs[3] }}</li>
+          <li>Glucose Level: {{ inputs[4] }}</li>
+          <li>Body Mass Index: {{ inputs[5] }}</li>
+          <li>Blood Pressure: {{ inputs[6] }}</li>
+          <li>Diabetes Pedigree Function: {{ inputs[7] }}</li>
+          <li>Skin Thickness: {{ inputs[8] }}</li>
+        </ul>
+      </div>
+      <hr>
+      <div class="result {{ result_class }}">
+        <p>{{ prediction_text }}</p>
+      </div>
+      <div><a href="/predict"
+      <button class="button">
+        <span class="button_lg">
+          <span class="button_sl"></span>
+          <span class="button_text">Back to Prediction</span>
+        </span>
+      </button></a>
+    </div>
+    </div>
+    <!-- Buttons for recommendations and report download -->
+    <div style="text-align: center; margin-top: 20px">
+      <form action="/recommendations" method="POST" style="display: inline">
+        <input type="hidden" name="name" value="{{ inputs[0] }}" />
+        <input type="hidden" name="gender" value="{{ inputs[1] }}" />
+        <button class="button m">
+          <span class="button_lg">
+            <span class="button_sl"></span>
+            <span class="button_text">Recommendations</span>
+          </span>
+        </button>
+      </form>
+
+      <form action="/print-report" method="POST" style="display: inline">
+        <input type="hidden" name="name" value="{{ inputs[0] }}" />
+        <input type="hidden" name="gender" value="{{ inputs[1] }}" />
+        <input type="hidden" name="pregnancies" value="{{ inputs[2] }}" />
+        <input type="hidden" name="insulin" value="{{ inputs[3] }}" />
+        <input type="hidden" name="glucose" value="{{ inputs[4] }}" />
+        <input type="hidden" name="bmi" value="{{ inputs[5] }}" />
+        <input type="hidden" name="blood_pressure" value="{{ inputs[6] }}" />
+        <input type="hidden" name="diabetes_pedigree" value="{{ inputs[7] }}" />
+        <input type="hidden" name="skin_thickness" value="{{ inputs[8] }}" />
+        <input type="hidden" name="age" value="{{ inputs[9] }}" />
+        <input
+          type="hidden"
+          name="prediction_text"
+          value="{{ prediction_text }}"
+        />
+        <button class="button m">
+          <span class="button_lg">
+            <span class="button_sl"></span>
+            <span class="button_text">Print Report</span>
+          </span>
+        </button>
+      </form>
+    </div>
+  </body>
+</html>

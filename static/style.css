@@ -1,0 +1,375 @@
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background: linear-gradient(to right, #f3f4f6, #e0f7fa);
+  position: relative;
+  overflow: hidden;
+}
+
+.background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+}
+
+.shape {
+  position: absolute;
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.shape1 {
+  width: 500px;
+  height: 500px;
+  background: rgba(255, 203, 203, 0.5);
+  top: -100px;
+  left: -200px;
+  background-image: url("https://i.pinimg.com/originals/05/84/11/0584114967289546cf8257f6205e792e.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.shape2 {
+  width: 400px;
+  height: 400px;
+  background: rgba(200, 220, 255, 0.5);
+  top: 300px;
+  right: -100px;
+  background-image: url("https://www.prnpt.com/Resources/087925d1-7fb2-4de6-a212-7c35e43614a9/PRN%20Cigna%20MRF.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.container {
+  position: relative;
+  background: rgb(255, 255, 255);
+  border-radius: 10px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 30px;
+  width: 600px;
+  z-index: 2;
+  margin: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 15px; /* Space between the sections */
+  background-image: url("https://img.freepik.com/premium-vector/abstract-hexagonal-molecular-structures-technology-background-science-style-medical-design-vector-illustration_41981-2690.jpg?w=2000");
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  text-align: center;
+  color: #007bff;
+  margin-bottom: 20px;
+  width: 100%;
+  margin-top: 0;
+}
+
+.section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px; /* Space between the columns */
+}
+
+.column {
+  flex: 1;
+  min-width: 250px; /* Minimum width for responsive design */
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  color: #333;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1.5px solid #b646d2;
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 2.5px 3px 0 #b646d2;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease; /* Add transition for transform */
+}
+
+input:focus {
+  box-shadow: 5.5px 7px 0 #b646d2;
+}
+
+input:hover {
+  box-shadow: 4px 5px 0 #b646d2; /* Modify box-shadow on hover */
+  border-color: #a33ac5; /* Optional: Change border color on hover */
+  transform: translate(
+    5px,
+    5px
+  ); /* Move the input slightly to the right and down */
+}
+
+.input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1.5px solid #b646d2;
+  border-radius: 5px;
+  box-sizing: border-box;
+  box-shadow: 2.5px 3px 0 #b646d2;
+  transition: box-shadow 0.3s ease, border-color 0.3s ease, transform 0.3s ease; /* Add transition for transform */
+}
+
+.input:focus {
+  box-shadow: 5.5px 7px 0 #b646d2;
+}
+
+.input:hover {
+  box-shadow: 4px 5px 0 #b646d2; /* Modify box-shadow on hover */
+  border-color: #a33ac5; /* Optional: Change border color on hover */
+  transform: translate(
+    5px,
+    5px
+  ); /* Move the input slightly to the right and down */
+}
+
+/*button  {
+  background: linear-gradient(to right, #ff7e5f, #feb47b);
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 5px;
+  width: 100%;
+  cursor: pointer;
+  font-size: 16px;
+  margin-top: 15px; /* Add some space above the button ]
+  */
+
+button:hover {
+  opacity: 0.9;
+  transform: scale(1.05); /* Slightly enlarge on hover */
+}
+
+h3 {
+  text-align: center;
+  color: #007bff;
+}
+
+/* Loading spinner styling */
+.terminal-loader {
+  display: none; /* Hidden by default */
+  border: 0.1em solid #333;
+  background-color: #1a1a1a;
+  color: #0f0;
+  font-family: "Courier New", Courier, monospace;
+  font-size: 1em;
+  padding: 1.5em 1em;
+  width: 12em;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 4px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000; /* Ensure it appears on top */
+}
+
+.terminal-header {
+  height: 1.5em;
+  background-color: #333;
+  margin-bottom: 10px;
+}
+
+.terminal-controls {
+  float: right;
+}
+
+.control {
+  display: inline-block;
+  width: 0.6em;
+  height: 0.6em;
+  margin-left: 0.4em;
+  border-radius: 50%;
+  background-color: #777;
+}
+
+.control.close {
+  background-color: #e33;
+}
+
+.control.minimize {
+  background-color: #ee0;
+}
+
+.control.maximize {
+  background-color: #0b0;
+}
+
+.terminal-title {
+  float: left;
+  color: #eee;
+}
+
+.text {
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 0.2em solid green;
+  animation: typeAndDelete 4s steps(11) infinite,
+    blinkCursor 0.5s step-end infinite alternate;
+}
+
+@keyframes blinkCursor {
+  50% {
+    border-right-color: transparent;
+  }
+}
+
+@keyframes typeAndDelete {
+  0%,
+  10% {
+    width: 0;
+  }
+  45%,
+  55% {
+    width: 6.2em; /* adjust width based on content */
+  }
+  90%,
+  100% {
+    width: 0;
+  }
+}
+
+/* Blur effect applied to content */
+.loading-active #contentWrapper {
+  filter: blur(5px);
+  pointer-events: none; /* Prevent interaction while loading */
+}
+
+.loading-active .terminal-loader {
+  display: block; /* Show spinner when loading */
+}
+/* From Uiverse.io by mrhyddenn */
+.button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  border: none;
+  background: none;
+  color: #0f1923;
+  cursor: pointer;
+  position: relative;
+  padding: 8px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-size: 14px;
+  transition: all 0.15s ease;
+  position: relative;
+  left: 210px;
+  top: 20px;
+}
+
+.button::before,
+.button::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  left: 0;
+  height: calc(50% - 5px);
+  border: 1px solid #7d8082;
+  transition: all 0.15s ease;
+}
+
+.button::before {
+  top: 0;
+  border-bottom-width: 0;
+}
+
+.button::after {
+  bottom: 0;
+  border-top-width: 0;
+}
+
+.button:active,
+.button:focus {
+  outline: none;
+}
+
+.button:active::before,
+.button:active::after {
+  right: 3px;
+  left: 3px;
+}
+
+.button:active::before {
+  top: 3px;
+}
+
+.button:active::after {
+  bottom: 3px;
+}
+
+.button_lg {
+  position: relative;
+  display: block;
+  padding: 10px 20px;
+  color: #fff;
+  background-color: #0f1923;
+  overflow: hidden;
+  box-shadow: inset 0px 0px 0px 1px transparent;
+}
+
+.button_lg::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 2px;
+  height: 2px;
+  background-color: #0f1923;
+}
+
+.button_lg::after {
+  content: "";
+  display: block;
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 4px;
+  height: 4px;
+  background-color: #0f1923;
+  transition: all 0.2s ease;
+}
+
+.button_sl {
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: -1px;
+  left: -8px;
+  width: 0;
+  background-color: #ff4655;
+  transform: skew(-15deg);
+  transition: all 0.2s ease;
+}
+
+.button_text {
+  position: relative;
+}
+
+.button:hover {
+  color: #0f1923;
+}
+
+.button:hover .button_sl {
+  width: calc(100% + 15px);
+}
+
+.button:hover .button_lg::after {
+  background-color: #fff;
+}
